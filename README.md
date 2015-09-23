@@ -1,2 +1,2 @@
-# BNR_iOSprogramming4ed
+# BNR_iOSprogramming
 Solutions for Big Nerd Ranch iOS programming exercises.
