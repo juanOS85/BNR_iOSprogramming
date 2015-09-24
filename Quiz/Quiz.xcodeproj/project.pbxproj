@@ -10,9 +10,7 @@
 		4C793A491BB394EE00F31B48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C793A481BB394EE00F31B48 /* main.m */; };
 		4C793A4C1BB394EE00F31B48 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C793A4B1BB394EE00F31B48 /* AppDelegate.m */; };
 		4C793A4F1BB394EE00F31B48 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C793A4E1BB394EE00F31B48 /* ViewController.m */; };
-		4C793A521BB394EE00F31B48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C793A501BB394EE00F31B48 /* Main.storyboard */; };
 		4C793A541BB394EE00F31B48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C793A531BB394EE00F31B48 /* Assets.xcassets */; };
-		4C793A571BB394EE00F31B48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C793A551BB394EE00F31B48 /* LaunchScreen.storyboard */; };
 		4C793A621BB394EE00F31B48 /* QuizTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C793A611BB394EE00F31B48 /* QuizTests.m */; };
 		4C793A6D1BB394EE00F31B48 /* QuizUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C793A6C1BB394EE00F31B48 /* QuizUITests.m */; };
 /* End PBXBuildFile section */
@@ -41,9 +39,7 @@
 		4C793A4B1BB394EE00F31B48 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4C793A4D1BB394EE00F31B48 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4C793A4E1BB394EE00F31B48 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		4C793A511BB394EE00F31B48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C793A531BB394EE00F31B48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4C793A561BB394EE00F31B48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C793A581BB394EE00F31B48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C793A5D1BB394EE00F31B48 /* QuizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C793A611BB394EE00F31B48 /* QuizTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuizTests.m; sourceTree = "<group>"; };
@@ -105,9 +101,7 @@
 				4C793A4B1BB394EE00F31B48 /* AppDelegate.m */,
 				4C793A4D1BB394EE00F31B48 /* ViewController.h */,
 				4C793A4E1BB394EE00F31B48 /* ViewController.m */,
-				4C793A501BB394EE00F31B48 /* Main.storyboard */,
 				4C793A531BB394EE00F31B48 /* Assets.xcassets */,
-				4C793A551BB394EE00F31B48 /* LaunchScreen.storyboard */,
 				4C793A581BB394EE00F31B48 /* Info.plist */,
 				4C793A471BB394EE00F31B48 /* Supporting Files */,
 			);
@@ -244,9 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C793A571BB394EE00F31B48 /* LaunchScreen.storyboard in Resources */,
 				4C793A541BB394EE00F31B48 /* Assets.xcassets in Resources */,
-				4C793A521BB394EE00F31B48 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,25 +299,6 @@
 			targetProxy = 4C793A691BB394EE00F31B48 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		4C793A501BB394EE00F31B48 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4C793A511BB394EE00F31B48 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		4C793A551BB394EE00F31B48 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4C793A561BB394EE00F31B48 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4C793A6F1BB394EE00F31B48 /* Debug */ = {
