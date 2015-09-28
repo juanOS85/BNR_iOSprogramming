@@ -22,8 +22,9 @@ int main(int argc, const char * argv[]) {
     // Send another message, insertObject:atIndex:, to that same array object
     [items insertObject:@"Zero" atIndex:0];
 
-    for (int i = 0; i < [items count]; i += 1) {
-      NSString *item = [items objectAtIndex:i];
+    // For every item in the items array
+    for (NSString *item in items) {
+      // Log the description of the item
       NSLog(@"%@", item);
     }
 
