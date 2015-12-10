@@ -13,6 +13,7 @@
   NSMutableArray *_subitems;
 }
 
+// Initializers
 - (instancetype)initWithItemName:(NSString *)name
                   valueInDollars:(int)value;
 

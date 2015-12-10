@@ -37,7 +37,23 @@
 
 - (NSString *)description
 {
-  return @"";
+  NSMutableString *itemsDescription = [[NSMutableString alloc] init];
+  int containerValueInDollars = self.valueInDollars;
+  
+  for (BNRContainer *item in self.subitems) {
+    containerValueInDollars += item.valueInDollars;
+    [itemsDescription appendString:[item description]];
+  }
+
+  NSString *desriptionString = [[NSString alloc] initWithFormat:@"%@ (%@): Worth $%d, recorded on %@\n%@",
+                                self.itemName,
+                                self.serialNumber,
+                                containerValueInDollars,
+                                self.dateCreated,
+                                itemsDescription];
+
+  return desriptionString;
+
 }
 
 - (void)setSubitems:(NSMutableArray *)subitems
