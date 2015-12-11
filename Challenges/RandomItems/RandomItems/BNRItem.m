@@ -85,7 +85,7 @@
   return [self initWithItemName:@"Item"];
 }
 
-- (void) setItemName:(NSString *)str
+- (void)setItemName:(NSString *)str
 {
     _itemName = str;
 }
@@ -94,7 +94,7 @@
     return _itemName;
 }
 
-- (void) setSerialNumber:(NSString *)str
+- (void)setSerialNumber:(NSString *)str
 {
     _serialNumber = str;
 }

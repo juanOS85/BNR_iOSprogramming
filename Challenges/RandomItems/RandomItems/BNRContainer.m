@@ -33,37 +33,32 @@
 - (void)addSubitem:(BNRItem *)subitem
 {
   [self.subitems addObject:subitem];
+
+  self.valueInDollars += subitem.valueInDollars;
 }
 
 - (NSString *)description
 {
-  NSMutableString *itemsDescription = [[NSMutableString alloc] init];
-  int containerValueInDollars = self.valueInDollars;
-  
+  NSString *desriptionString = [[NSString alloc] initWithFormat:@"%@: Worth $%d, recorded on %@",
+                                self.itemName,
+                                self.valueInDollars,
+                                self.dateCreated];
+
   for (BNRContainer *item in self.subitems) {
-    containerValueInDollars += item.valueInDollars;
-    [itemsDescription appendString:[item description]];
+    desriptionString = [desriptionString stringByAppendingFormat:@"\n%@", item];
   }
 
-  NSString *desriptionString = [[NSString alloc] initWithFormat:@"%@ (%@): Worth $%d, recorded on %@\n%@",
-                                self.itemName,
-                                self.serialNumber,
-                                containerValueInDollars,
-                                self.dateCreated,
-                                itemsDescription];
-
   return desriptionString;
-
 }
 
 - (void)setSubitems:(NSMutableArray *)subitems
 {
-  self.subitems = subitems;
+  _subitems = subitems;
 }
 
 - (NSMutableArray *)subitems
 {
-  return self.subitems;
+  return _subitems;
 }
 
 @end
