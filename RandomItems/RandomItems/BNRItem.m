@@ -55,7 +55,7 @@
     // Give the instance variables initial values
     _itemName = name;
     _serialNumber = sNumber;
-    _valueinDollars = value;
+    _valueInDollars = value;
 
     // Set _dateCreated to the current date and time
     _dateCreated = [[NSDate alloc] init];
@@ -77,58 +77,10 @@
   return [self initWithItemName:@"Item"];
 }
 
-- (void) setItemName:(NSString *)str
+- (void)setContainedItem:(BNRItem *)containedItem
 {
-    _itemName = str;
-}
-- (NSString *)itemName
-{
-    return _itemName;
-}
-
-- (void) setSerialNumber:(NSString *)str
-{
-    _serialNumber = str;
-}
-- (NSString *)serialNumber
-{
-    return _serialNumber;
-}
-
-- (void)setValueInDollars:(int)v
-{
-    _valueinDollars = v;
-}
-- (int)valueInDollars
-{
-    return _valueinDollars;
-}
-
-- (NSDate *)dateCreated
-{
-    return _dateCreated;
-}
-
-- (void)setContainedItem:(BNRItem *)item
-{
-  _containedItem = item;
-
-  // When given and item to contain, the contained item will be given a pointer
-  // to its container
-  item.container = self;
-}
-- (BNRItem *)containedItem
-{
-  return _containedItem;
-}
-
-- (void)setContainer:(BNRItem *)item
-{
-  _container = item;
-}
-- (BNRItem *)container
-{
-  return _container;
+  _containedItem = containedItem;
+  self.containedItem.container = self;
 }
 
 - (NSString *)description
