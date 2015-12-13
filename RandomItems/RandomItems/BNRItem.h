@@ -10,10 +10,12 @@
 
 @interface BNRItem : NSObject
 {
-    NSString *_itemName;
-    NSString *_serialNumber;
-    int _valueinDollars;
-    NSDate *_dateCreated;
+  NSString *_itemName;
+  NSString *_serialNumber;
+  int _valueinDollars;
+  NSDate *_dateCreated;
+  BNRItem *_containedItem;
+  __weak BNRItem *_container;
 }
 
 + (instancetype)randomItem;
@@ -35,5 +37,11 @@
 - (int)valueInDollars;
 
 - (NSDate *)dateCreated;
+
+- (void)setContainedItem:(BNRItem *)item;
+- (BNRItem *)containedItem;
+
+- (void)setContainer:(BNRItem *)item;
+- (BNRItem *)container;
 
 @end

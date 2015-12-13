@@ -109,6 +109,28 @@
     return _dateCreated;
 }
 
+- (void)setContainedItem:(BNRItem *)item
+{
+  _containedItem = item;
+
+  // When given and item to contain, the contained item will be given a pointer
+  // to its container
+  item.container = self;
+}
+- (BNRItem *)containedItem
+{
+  return _containedItem;
+}
+
+- (void)setContainer:(BNRItem *)item
+{
+  _container = item;
+}
+- (BNRItem *)container
+{
+  return _container;
+}
+
 - (NSString *)description
 {
   NSString *desriptionString = [[NSString alloc] initWithFormat:@"%@ (%@): Worth $%d, recorded on %@",
@@ -118,6 +140,11 @@
                                 self.dateCreated];
 
   return desriptionString;
+}
+
+- (void)dealloc
+{
+  NSLog(@"Destroyed: %@", self);
 }
 
 @end
