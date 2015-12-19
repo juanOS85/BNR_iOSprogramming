@@ -59,6 +59,25 @@
   // Draw the line!
   [path stroke];
 
+  CGFloat locations[2] = { 0.0, 1.0 };
+  CGFloat components[8] = { 1.0, 0.0, 0.0, 1.0, // start color
+                            1.0, 1.0, 0.0, 1.0 }; // end color
+
+  CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+  CGGradientRef gradient = CGGradientCreateWithColorComponents(colorSpace,
+                                                               components,
+                                                               locations,
+                                                               2);
+
+  CGPoint startPoint = CGPointMake(center.x,
+                                   bounds.origin.y + bounds.size.height / 4.0);
+  CGPoint endPoint = CGPointMake(startPoint.x + bounds.size.width / 2.0,
+                                 startPoint.y + bounds.size.height / 2.0);
+
+  CGContextDrawLinearGradient(currentContext, gradient, startPoint, endPoint, 0);
+  CGGradientRelease(gradient);
+  CGColorSpaceRelease(colorSpace);
+
   CGRect logoImageRect = CGRectMake(bounds.origin.x + bounds.size.width / 4.0,
                                     bounds.origin.y + bounds.size.height / 4.0,
                                     bounds.size.width / 2.0,
