@@ -25,14 +25,10 @@
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
+  CGContextRef currentContext = UIGraphicsGetCurrentContext();
+
   // Drawing code
   CGRect bounds = self.bounds;
-  CGRect logoImageRect = CGRectMake(bounds.origin.x + bounds.size.width / 4.0,
-                                    bounds.origin.y + bounds.size.height / 4.0,
-                                    bounds.size.width / 2.0,
-                                    bounds.size.height / 2.0);
-
-  UIImage *logoImage = [UIImage imageNamed:@"logo.png"];
 
   // Figure out the center of the bounds rectangle
   CGPoint center;
@@ -63,7 +59,19 @@
   // Draw the line!
   [path stroke];
 
+  CGRect logoImageRect = CGRectMake(bounds.origin.x + bounds.size.width / 4.0,
+                                    bounds.origin.y + bounds.size.height / 4.0,
+                                    bounds.size.width / 2.0,
+                                    bounds.size.height / 2.0);
+
+  UIImage *logoImage = [UIImage imageNamed:@"logo.png"];
+
+  CGContextSaveGState(currentContext);
+  CGContextSetShadow(currentContext, CGSizeMake(4, 7), 3);
+
   [logoImage drawInRect:logoImageRect];
+
+  CGContextRestoreGState(currentContext);
 }
 
 @end
