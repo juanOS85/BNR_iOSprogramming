@@ -59,8 +59,15 @@
   // Draw the line!
   [path stroke];
 
+  [path moveToPoint:CGPointMake(center.x,
+                                bounds.origin.y + bounds.size.height / 4.0)];
+
+  CGContextSaveGState(currentContext);
+
+  [path addClip];
+
   CGFloat locations[2] = { 0.0, 1.0 };
-  CGFloat components[8] = { 1.0, 0.0, 0.0, 1.0, // start color
+  CGFloat components[8] = { 0.0, 1.0, 0.0, 1.0, // start color
                             1.0, 1.0, 0.0, 1.0 }; // end color
 
   CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
@@ -69,14 +76,15 @@
                                                                locations,
                                                                2);
 
-  CGPoint startPoint = CGPointMake(center.x,
+  CGPoint startPoint = CGPointMake(0.0,
                                    bounds.origin.y + bounds.size.height / 4.0);
-  CGPoint endPoint = CGPointMake(startPoint.x + bounds.size.width / 2.0,
-                                 startPoint.y + bounds.size.height / 2.0);
+  CGPoint endPoint = CGPointMake(0.0, startPoint.y + bounds.size.height / 2.0);
 
   CGContextDrawLinearGradient(currentContext, gradient, startPoint, endPoint, 0);
   CGGradientRelease(gradient);
   CGColorSpaceRelease(colorSpace);
+
+  CGContextRestoreGState(currentContext);
 
   CGRect logoImageRect = CGRectMake(bounds.origin.x + bounds.size.width / 4.0,
                                     bounds.origin.y + bounds.size.height / 4.0,
