@@ -59,12 +59,18 @@
   // Draw the line!
   [path stroke];
 
-  [path moveToPoint:CGPointMake(center.x,
+  // Gold challenge - Gradient part
+  UIBezierPath *trianglePath = [[UIBezierPath alloc] init];
+
+  [trianglePath moveToPoint:CGPointMake(center.x,
                                 bounds.origin.y + bounds.size.height / 4.0)];
+  [trianglePath addLineToPoint:CGPointMake(0.0, bounds.origin.y + bounds.size.height)];
+  [trianglePath addLineToPoint:CGPointMake(bounds.size.width, bounds.origin.y + bounds.size.height)];
+  [trianglePath closePath];
 
   CGContextSaveGState(currentContext);
 
-  [path addClip];
+  [trianglePath addClip];
 
   CGFloat locations[2] = { 0.0, 1.0 };
   CGFloat components[8] = { 0.0, 1.0, 0.0, 1.0, // start color
@@ -86,6 +92,7 @@
 
   CGContextRestoreGState(currentContext);
 
+  // Bronze challenge
   CGRect logoImageRect = CGRectMake(bounds.origin.x + bounds.size.width / 4.0,
                                     bounds.origin.y + bounds.size.height / 4.0,
                                     bounds.size.width / 2.0,
@@ -93,6 +100,7 @@
 
   UIImage *logoImage = [UIImage imageNamed:@"logo.png"];
 
+  // Gold challenge - Shadows part
   CGContextSaveGState(currentContext);
   CGContextSetShadow(currentContext, CGSizeMake(4, 7), 3);
 
