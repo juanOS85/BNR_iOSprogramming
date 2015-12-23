@@ -8,6 +8,12 @@
 
 #import "BNRHypnosisView.h"
 
+@interface BNRHypnosisView ()
+
+@property (nonatomic, strong) UIColor *circleColor;
+
+@end
+
 @implementation BNRHypnosisView
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -17,6 +23,7 @@
   if (self) {
     // All BNRHypnosisView start with a clear background color
     self.backgroundColor = [UIColor clearColor];
+    self.circleColor = [UIColor lightGrayColor];
   }
 
   return self;
@@ -51,11 +58,33 @@
   // Configure line width to 10 points
   path.lineWidth = 10;
 
-  // Configure the drawing color to light gray
-  [[UIColor lightGrayColor] setStroke];
+  [self.circleColor setStroke];
 
   // Draw the line!
   [path stroke];
+}
+
+- (void)setCircleColor:(UIColor *)circleColor
+{
+  _circleColor = circleColor;
+  [self setNeedsDisplay];
+}
+
+// When finger touches the screen
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+  NSLog(@"%@ was toched", self);
+
+  float red = (arc4random() % 100) / 100.0;
+  float green = (arc4random() % 100) / 100.0;
+  float blue = (arc4random() % 100) / 100.0;
+
+  UIColor *randomColor = [UIColor colorWithRed:red
+                                         green:green
+                                          blue:blue
+                                         alpha:1.0];
+
+  self.circleColor = randomColor;
 }
 
 @end
