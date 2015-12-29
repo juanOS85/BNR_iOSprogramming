@@ -29,7 +29,7 @@
                     <rect key="frame" x="0.0" y="465" width="600" height="30"/>
                     <state key="normal" title="Remind me!"/>
                     <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="0.0" y="409" width="400" height="30"/>
+                        <rect key="frame" x="0.0" y="374" width="400" height="30"/>
                     </variation>
                     <connections>
                         <action selector="addReminder:" destination="-1" eventType="touchUpInside" id="KJZ-sp-OHN"/>
