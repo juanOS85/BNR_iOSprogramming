@@ -9,6 +9,12 @@
 #import "BNRHypnosisViewController.h"
 #import "BNRHypnosisView.h"
 
+@interface BNRHypnosisViewController ()
+
+//@property (nonatomic, weak) UISegmentedControl *segmentedControl;
+
+@end
+
 @implementation BNRHypnosisViewController
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil

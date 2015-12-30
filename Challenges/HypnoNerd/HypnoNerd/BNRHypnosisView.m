@@ -62,6 +62,18 @@
 
   // Draw the line!
   [path stroke];
+
+  UISegmentedControl *segmentedControl = [[UISegmentedControl alloc]
+                                          initWithItems:@[@"Red", @"Green", @"Blue"]];
+
+  segmentedControl.frame = CGRectMake(60, 50, 200, 50);
+
+//  [segmentedControl setSelectedSegmentIndex:0];
+  [segmentedControl addTarget:self
+                       action:@selector(segmentedControlValueDidChange:)
+             forControlEvents:UIControlEventValueChanged];
+
+  [self addSubview:segmentedControl];
 }
 
 - (void)setCircleColor:(UIColor *)circleColor
@@ -85,6 +97,23 @@
                                          alpha:1.0];
 
   self.circleColor = randomColor;
+}
+
+- (void)segmentedControlValueDidChange:(UISegmentedControl *)segment
+{
+  switch (segment.selectedSegmentIndex) {
+    case 0:
+      self.circleColor = [UIColor redColor];
+      break;
+
+    case 1:
+      self.circleColor = [UIColor greenColor];
+      break;
+
+    case 2:
+      self.circleColor = [UIColor blueColor];
+      break;
+  }
 }
 
 @end
