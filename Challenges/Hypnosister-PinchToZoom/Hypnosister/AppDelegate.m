@@ -11,7 +11,7 @@
 
 @interface AppDelegate () <UIScrollViewDelegate>
 
-@property (nonatomic, weak) BNRHypnosisView *view;
+@property (nonatomic, strong) BNRHypnosisView *hypnosisView;
 
 @end
 
@@ -30,27 +30,18 @@
 
   // Crete CGRects for frames
   CGRect screenRect = self.window.bounds;
-  CGRect bigRect = screenRect;
-  bigRect.size.width *= 2.0;
+
+  self.hypnosisView = [[BNRHypnosisView alloc] initWithFrame:screenRect];
 
   // Create a screen-sized scroll view and add it to the window
   UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
+  scrollView.minimumZoomScale = 1.0;
+  scrollView.maximumZoomScale = 4.0;
+  scrollView.delegate = self;
+
+  [scrollView addSubview:self.hypnosisView];
 
   [vc.view addSubview:scrollView];
-
-  // Create a screen-sized hypnosis view and add it to the scroll view
-  BNRHypnosisView *hypnosisView = [[BNRHypnosisView alloc] initWithFrame:screenRect];
-  scrollView.pagingEnabled = YES;
-  [scrollView addSubview:hypnosisView];
-
-  // Add a second screen-sized hypnosis view just off screen to the right
-  screenRect.origin.x += screenRect.size.width;
-
-  BNRHypnosisView *anotherView = [[BNRHypnosisView alloc] initWithFrame:screenRect];
-  [scrollView addSubview:anotherView];
-
-  // Tell the scroll view how big its content area is
-  scrollView.contentSize = bigRect.size;
 
   self.window.backgroundColor = [UIColor whiteColor];
   [self.window makeKeyAndVisible];
@@ -78,6 +69,11 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
   // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+  return scrollView.subviews[0];
 }
 
 @end
